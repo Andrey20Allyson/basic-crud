@@ -27,7 +27,7 @@ export class UserService implements IUserService {
     const models = await this.repository.list({ page });
     if (models.length === 0) {
       return new WebApplicationError(
-        `Empity page with index ${page}`,
+        `Página ${page} está vazia`,
         404,
       ).reject();
     }
@@ -73,7 +73,7 @@ export class UserService implements IUserService {
     const model = await this.repository.findById(id);
     if (model === null) {
       return new WebApplicationError(
-        `Can't find user with id ${id}`,
+        `Usuário com id ${id} não existe`,
         404,
       ).reject();
     }
