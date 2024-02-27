@@ -12,13 +12,8 @@ export class UserModel {
     birthDate: BirthDate | Date,
     readonly passwordHash: string,
   ) {
-    this.name = name instanceof Name
-      ? name
-      : new Name(name);
-
-    this.birthDate = birthDate instanceof BirthDate
-      ? birthDate
-      : new BirthDate(birthDate);
+    this.name = Name.from(name);
+    this.birthDate = BirthDate.from(birthDate);
   }
 
   setId(id?: number | null): UserModel {
